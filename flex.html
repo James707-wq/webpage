@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Layout</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+   <div class="navbar">
+  <a href="home.html" class="logo">
+    <img src="/prototype /images (53)~2.jpeg" alt="Logo">
+  </a>
+ <ul>
+        <li><a href="Home.html" class="menu-item">Home</a></li>
+        <li><a href="Blog.html" class="menu-item">Blog</a></li>
+        <li><a href="flex.html" class="menu-item">Flex</a></li>
+    </ul>
+</div>
+    </header>
+
+    <main>
+        <section class="top-section">
+            <div class="card">
+                <img src="/image/received_808534611348774.jpeg" alt="Kupal" class="image">
+                <h3>Kupal</h3>
+            </div>
+
+            <div class="card">
+                <img src="/flex/received_374619439068223.jpeg" alt="Friends" class="image">
+                <h3>Friends</h3>
+            </div>
+        </section>
+        <section class="top-sections">
+            <div class="card">
+                <img src="/flex/1730802035823.jpg" alt="Family" class="image">
+                <h3>Family</h3>
+            </div>
+        </section>
+        <section class="achievements">
+            <div class="achievement-card">
+                <h3>Graduated</h3>
+                <img src="/flex/received_353880297344969.jpeg" alt="Graduated" class="image">
+            </div>
+            <div class="achievement-card">
+                <h3>Body Enhancement</h3>
+                <img src="/image/IMG_20241130_164424_383.jpg" alt="Body Enhancement" class="image">
+            </div>
+            <div class="achievement-card">
+                <h3>The Niggas</h3>
+                <img src="/flex/Messenger_creation_6F67F192-E78B-4E2B-A86E-072D74F6DC5E.jpeg" alt="The Niggas" class="image">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Brent Kirvy James L. Bangero, 2024</p>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="overlay" id="fullscreenOverlay">
+        <button class="close-btn" onclick="closeOverlay()">Close</button>
+        <h2 id="overlayTitle"></h2>
+        <img id="overlayImage" src="" alt="Overlay Image">
+    </div>
+
+    <script>
+        // Select all images
+        const images = document.querySelectorAll('.image');
+        const overlay = document.getElementById('fullscreenOverlay');
+        const overlayImage = document.getElementById('overlayImage');
+        const overlayTitle = document.getElementById('overlayTitle');
+
+        // Add click event to all images
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                overlayImage.src = image.src;
+                overlayTitle.textContent = image.alt;
+                overlay.style.opacity = '1';
+                overlay.style.pointerEvents = 'auto';
+            });
+        });
+
+        // Close overlay
+        function closeOverlay() {
+            overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none';
+        }
+    </script>
+</body>
+</html>

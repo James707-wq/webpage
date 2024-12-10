@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="navbar">
+    <a href="home.html" class="logo">
+        <img src="/prototype /images (53)~2.jpeg" alt="Logo">
+    </a>
+    <ul>
+        <li><a href="Home.html" class="menu-item">Home</a></li>
+        <li><a href="Blog.html" class="menu-item">Blog</a></li>
+        <li><a href="flex.html" class="menu-item">Flex</a></li>
+    </ul>
+</div>
+    </header>
+
+    <main class="content">
+        <section class="introduction">
+            <div class="introduction">
+                <img src="/flex/received_353880297344969.jpeg" alt="Profile Image" class="profile-img">
+                <div class="profile-info">
+                    <h2>Hi, My name is Brent Kirvy James L. Bangero</h2>
+                    <p>
+                        I am a first-year student at Bukidnon State University studying Bachelor of Science in Information Technology. 
+                        My hobbies include playing volleyball, baseball, online games, and reading novels. My skills are cooking, fixing motorcycles,driving, drawing, and adapting.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="social-media">
+                <h2>Social Media Links</h2>
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/brentkirvyjames.bangero" target="blank" class="logo">
+                            <img src="/image/Facebook_logo_(square).jpg" alt="facebook">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/kirvy_james/profilecard/?igsh=MWQwZDJjc2ZuYzl3bg==" target="blank" class="logo">
+                            <img src="/image/Instagram.jpg" alt="instagram">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/@brentkirvy21?_t=8rpIPecXkW1&_r=1" target="_blank" class="logo">
+                            <img src="/image/tiktok.jpg" alt="tiktok">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="video-section">
+                <h2>Myself in 8 Years</h2>
+                <video controls>
+                    <source src="/video/lv_0_20241128133112.mp4" type="video/mp4">
+                </video>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Brent Kirvy James L. Bangero, 2024</p>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="overlay" id="fullscreenOverlay">
+        <button class="close-btn" onclick="closeOverlay()">Close</button>
+        <h2 id="overlayTitle"></h2>
+        <img id="overlayImage" src="" alt="Overlay Image">
+        <p id="overlayText"></p>
+    </div>
+
+    <script>
+        // Select profile image for overlay
+        const profileImage = document.querySelector('.profile-img');
+        const overlay = document.getElementById('fullscreenOverlay');
+        const overlayImage = document.getElementById('overlayImage');
+        const overlayTitle = document.getElementById('overlayTitle');
+        const overlayText = document.getElementById('overlayText');
+
+        // Define text for overlay when profile image is clicked
+        const profileText = "Hi, I am Brent Kirvy James L. Bangero, a first-year IT student with hobbies in volleyball, baseball, and more.";
+
+        // Show the overlay with hidden content when the profile image is clicked
+        profileImage.addEventListener('click', () => {
+            overlay.style.opacity = '1';
+            overlay.style.pointerEvents = 'auto';
+            overlayImage.src = '/flex/received_353880297344969.jpeg'; // Display profile image in the overlay
+            overlayTitle.textContent = 'Brent Kirvy James L. Bangero'; // Title for the overlay
+            overlayText.textContent = profileText; // Description for the overlay
+        });
+
+        // Function to close the overlay
+        function closeOverlay() {
+            overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none';
+        }
+    </script>
+</body>
+</html>

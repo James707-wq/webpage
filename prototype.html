@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog with Overlay</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .top-section, .achievements {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card, .achievement-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            width: calc(33.33% - 20px);
+            box-sizing: border-box;
+        }
+
+        .card img, .achievement-card img {
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        /* Overlay Styles */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .overlay h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .overlay img {
+            max-width: 80%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .overlay p {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .overlay .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff4d4d;
+            border: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .overlay .close-btn:hover {
+            background: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <h1>Blog Page</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="flex.html">Flex Layout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <section>
+            <h2>IT111 Blog</h2>
+            <p>Most Challenging Lesson</p>
+            <section class="top-section">
+                <div class="card">
+                    <img src="/challenge lesson /Screenshot_20241125-152740_1.jpg" alt="Tech Timeline Research" class="image">
+                    <h3>Tech Timeline Research</h3>
+                </div>
+                <div class="card">
+                    <img src="/challenge lesson /Screenshot_20241125-153033_1.jpg" alt="Information Processing Cycle" class="image">
+                    <h3>Information Processing Cycle</h3>
+                </div>
+                <div class="card">
+                    <img src="/challenge lesson /Screenshot_20241125-153243_1.jpg" alt="Basic HTML and CSS" class="image">
+                    <h3>Basic HTML and CSS</h3>
+                </div>
+            </section>
+
+            <p>My Favorite Lessons</p>
+            <section class="achievements">
+                <div class="achievement-card">
+                    <h3>Introduction to Computing</h3>
+                    <img src="/favorite lesson /Screenshot_20241125-152734_1.jpg" alt="Introduction to Computing" class="image">
+                </div>
+                <div class="achievement-card">
+                    <h3>Common Types of Cybercrime</h3>
+                    <img src="/favorite lesson /Screenshot_20241125-153152_1.jpg" alt="Common Types of Cybercrime" class="image">
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Brent Kirvy James L. Bangero, 2024</p>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="overlay" id="fullscreenOverlay">
+        <button class="close-btn" onclick="closeOverlay()">Close</button>
+        <h2 id="overlayTitle"></h2>
+        <img id="overlayImage" src="" alt="Overlay Image">
+    </div>
+
+    <script>
+        // Select all images
+        const images = document.querySelectorAll('.image');
+        const overlay = document.getElementById('fullscreenOverlay');
+        const overlayImage = document.getElementById('overlayImage');
+        const overlayTitle = document.getElementById('overlayTitle');
+
+        // Add click event to all images
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                overlayImage.src = image.src;
+                overlayTitle.textContent = image.alt;
+                overlay.style.opacity = '1';
+                overlay.style.pointerEvents = 'auto';
+            });
+        });
+
+        // Close overlay
+        function closeOverlay() {
+            overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none';
+        }
+    </script>
+</body>
+</html>

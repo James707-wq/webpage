@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog with Overlay</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="navbar">
+          <a href="home.html" class="logo">
+            <img src="/prototype /images (53)~2.jpeg" alt="Logo">
+          </a>
+    <ul>
+        <li><a href="Home.html" class="menu-item">Home</a></li>
+        <li><a href="Blog.html" class="menu-item">Blog</a></li>
+        <li><a href="flex.html" class="menu-item">Flex</a></li>
+    </ul>
+        </div>
+    </header>
+
+    <main class="content">
+        <section>
+            <h2>IT111 Blog</h2>
+            <p>Most Challenging Lesson</p>
+            <section class="top-section">
+                <div class="card" data-text="This research covered key advancements in tech history.">
+                    <img src="/challenge lesson /Screenshot_20241125-152740_1.jpg" alt="Tech Timeline Research" class="image">
+                    <h3>Tech Timeline Research</h3>
+                </div>
+                <div class="card" data-text="Understanding the flow of data through input, processing, and output.">
+                    <img src="/challenge lesson /Screenshot_20241125-153033_1.jpg" alt="Information Processing Cycle" class="image">
+                    <h3>Information Processing Cycle</h3>
+                </div>
+                <div class="card" data-text="Learning the basics of web development.">
+                    <img src="/challenge lesson /Screenshot_20241125-153243_1.jpg" alt="Basic HTML and CSS" class="image">
+                    <h3>Basic HTML and CSS</h3>
+                </div>
+            </section>
+
+            <p>My Favorite Lessons</p>
+            <section class="achievements">
+                <div class="achievement-card" data-text="Introduction to fundamental computing concepts.">
+                    <h3>Introduction to Computing</h3>
+                    <img src="/favorite lesson /Screenshot_20241125-152734_1.jpg" alt="Introduction to Computing" class="image">
+                </div>
+                <div class="achievement-card" data-text="An overview of different cybercrimes and how to avoid them.">
+                    <h3>Common Types of Cybercrime</h3>
+                    <img src="/favorite lesson /Screenshot_20241125-153152_1.jpg" alt="Common Types of Cybercrime" class="image">
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Brent Kirvy James L. Bangero, 2024</p>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="overlay" id="fullscreenOverlay">
+        <button class="close-btn" onclick="closeOverlay()">Close</button>
+        <h2 id="overlayTitle"></h2>
+        <img id="overlayImage" src="" alt="Overlay Image">
+        <p id="overlayText"></p>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.card, .achievement-card');
+        const overlay = document.getElementById('fullscreenOverlay');
+        const overlayImage = document.getElementById('overlayImage');
+        const overlayTitle = document.getElementById('overlayTitle');
+        const overlayText = document.getElementById('overlayText');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const img = card.querySelector('img');
+                overlayImage.src = img.src;
+                overlayTitle.textContent = img.alt;
+                overlayText.textContent = card.dataset.text || "No additional information.";
+                overlay.style.opacity = '1';
+                overlay.style.pointerEvents = 'auto';
+            });
+        });
+
+        // Close overlay
+        function closeOverlay() {
+            overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none';
+        }
+    </script>
+</body>
+</html>
